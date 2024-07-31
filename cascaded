@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class CaseCascadeCarnival {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        
+        String inputString = scanner.nextLine();
+        
+       
+        String transformedString = cascadeCases(inputString);
+        
+        
+        System.out.println("Case Cascade Magic Unleashed! The " + transformedString + " transformation is complete.");
+        
+        scanner.close();
+    }
+    
+    private static String cascadeCases(String str) {
+        char[] chars = str.toCharArray();
+        
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] >= 'a' && chars[i] <= 'z') {
+                // Convert lowercase to uppercase
+                chars[i] = (char) (chars[i] - ('a' - 'A'));
+            } else if (chars[i] >= 'A' && chars[i] <= 'Z') {
+                // Convert uppercase to lowercase
+                chars[i] = (char) (chars[i] + ('a' - 'A'));
+            }
+        }
+        
+        
+        return new String(chars);
+    }
+}
